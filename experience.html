@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beach Experience - SoleMar Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="rooms.css">
+    <style>
+        /* Beach-specific styles */
+        .beach-hero {
+            height: 100vh;
+            background-image: url('Photos/pngtree-serene-tropical-beach-with-turquoise-water.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .beach-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,140,66,0.3) 0%, rgba(255,107,107,0.2) 100%);
+            z-index: 1;
+        }
+
+        .beach-hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .beach-hero h1 {
+            font-size: 4rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .beach-hero p {
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 2rem;
+        }
+
+        .wave-animation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,60 C300,100 600,20 900,60 C1050,80 1200,40 1200,60 L1200,120 L0,120 Z" fill="%23ffffff" opacity="0.3"></path></svg>');
+            background-size: cover;
+            animation: wave 10s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-25px); }
+        }
+
+        .beach-section {
+            padding: 80px 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            position: relative;
+            margin: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--glass-shadow);
+        }
+
+        .beach-section h2 {
+            text-align: center;
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .activity-card {
+            background: var(--glass-card);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 25px var(--glass-shadow);
+            transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .activity-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .activity-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .beach-quote {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #666;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255,255,255,0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .relaxation-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tip-card {
+            background: linear-gradient(135deg, #ff8c42 0%, #ffd700 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .tip-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo"><i class="fas fa-building"></i></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Our Rooms</a></li>
+                <li><a href="experience.html">Beach Experience</a></li>
+                <li><a href="payment.html">Payment Info</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+                <li><a href="#contact-modal" onclick="openContactModal(event)">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="beach-hero">
+        <div class="wave-animation"></div>
+        <div class="beach-hero-content">
+            <h1>Escape to Paradise</h1>
+            <p>Feel the warm sand between your toes, hear the gentle waves, and let the ocean breeze carry away your worries</p>
+            <div class="beach-quote">
+                "The beach is not just a place, it's a feeling of serenity and freedom"
+            </div>
+        </div>
+    </section>
+
+    <section class="beach-section fade-in-up">
+        <h2>Your Beach Day Awaits</h2>
+        <div class="activity-grid">
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fas fa-sun"></i></div>
+                <h3>Sunrise Yoga</h3>
+                <p>Start your day with gentle yoga poses as the sun rises over the Mediterranean, bringing peace and energy to your soul.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fas fa-swimmer"></i></div>
+                <h3>Crystal Clear Waters</h3>
+                <p>Dive into the turquoise waters of Himarë's pristine beaches, where the sea meets the sky in perfect harmony.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fas fa-utensils"></i></div>
+                <h3>Beachside Dining</h3>
+                <p>Savor fresh seafood and local delicacies at charming seaside tavernas, watching the waves as you dine.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fas fa-moon"></i></div>
+                <h3>Starry Night Walks</h3>
+                <p>Stroll along the shoreline under a canopy of stars, listening to the rhythmic sound of the ocean.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="beach-section fade-in-up" style="background: linear-gradient(135deg, #f4e4bc 0%, #ffe4b5 100%);">
+        <h2>Local Beach Paradise</h2>
+        <div class="activity-grid">
+            <div class="activity-card">
+                <h3>Himarë Beach</h3>
+                <p>Just 250 meters from your door, this secluded paradise offers golden sands and calm waters perfect for swimming and relaxation.</p>
+            </div>
+            <div class="activity-card">
+                <h3>Jale Beach</h3>
+                <p>A short drive away, this dramatic beach features unique rock formations and stunning sunsets that paint the sky in gold.</p>
+            </div>
+            <div class="activity-card">
+                <h3>Borsh Beach</h3>
+                <p>Known for its crystal-clear waters and vibrant underwater world, perfect for snorkeling and discovering marine life.</p>
+            </div>
+            <div class="activity-card">
+                <h3>Hidden Coves</h3>
+                <p>Explore secluded coves accessible only by boat, where you can find your own private slice of paradise.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="beach-section fade-in-up">
+        <h2>Relaxation & Wellness</h2>
+        <div class="relaxation-tips">
+            <div class="tip-card">
+                <h4>Meditation by the Sea</h4>
+                <p>Find your center with guided meditation sessions overlooking the endless blue horizon.</p>
+            </div>
+            <div class="tip-card">
+                <h4>Beach Reading Nook</h4>
+                <p>Curl up with your favorite book in our shaded outdoor reading area, with ocean views.</p>
+            </div>
+            <div class="tip-card">
+                <h4>Spa Treatments</h4>
+                <p>Indulge in traditional Albanian spa rituals using local herbs and essential oils.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="beach-section fade-in-up" style="background: linear-gradient(135deg, #fefefe 0%, #f0f8ff 100%);">
+        <h2>Beach Gallery</h2>
+        <div class="photo-gallery">
+            <img src="Photos/683675e4-d8de-43c0-a5e0-ba2122da891e.avif" alt="Beach Sunset" class="room-photo">
+            <img src="Photos/pngtree-serene-tropical-beach-with-turquoise-water.webp" alt="Ocean View" class="room-photo">
+            <img src="Photos/0b347638-be58-406b-a928-21de9d120201.avif" alt="Beach Paradise" class="room-photo">
+            <img src="Photos/da2c9b00-606f-4609-ab10-888dd5bd6e09.avif" alt="Coastal Beauty" class="room-photo">
+        </div>
+    </section>
+
+    <script>
+        function openContactModal(e) {
+            e.preventDefault();
+            document.getElementById('contact-modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeContactModal() {
+            document.getElementById('contact-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        window.onclick = function(event) {
+            const modal = document.getElementById('contact-modal');
+            if (event.target === modal) {
+                closeContactModal();
+            }
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeContactModal();
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <a href="#top" class="scroll-to-top" id="scrollToTop"></a>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="contact-modal">
+        <div class="contact-modal-content">
+            <span class="contact-modal-close" onclick="closeContactModal()">&times;</span>
+            <h3>Contact Us</h3>
+            <a href="tel:+355684542500" class="contact-phone">+355 68 4542 500</a>
+        </div>
+    </div>
+
+    <script>
+        // Scroll to Top Functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Smooth scroll to top
+        scrollToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

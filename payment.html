@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Information - SoleMar Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo"><i class="fas fa-building"></i></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Our Rooms</a></li>
+                <li><a href="experience.html">Beach Experience</a></li>
+                <li><a href="payment.html">Payment Info</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+                <li><a href="#contact-modal" onclick="openContactModal(event)">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Payment Hero -->
+    <section class="apartment-hero" style="background-image: url('Photos/683675e4-d8de-43c0-a5e0-ba2122da891e.avif');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Secure & Flexible Payment Options</h1>
+            <p>Book with confidence using our secure payment system and transparent pricing policies.</p>
+            <a href="booking.html" class="booknow-btn large">Book Your Stay Now</a>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="apartment-section fade-in-up">
+        <h2>Accepted Payment Methods</h2>
+        <div class="payment-methods-grid">
+            <a href="booking.html?payment=card" class="payment-method-card-link">
+                <div class="payment-method-card">
+                    <div class="payment-icon-large">
+                        <i class="fab fa-cc-visa"></i>
+                    </div>
+                    <h3>Visa & Mastercard</h3>
+                    <p>All major credit and debit cards accepted with instant processing.</p>
+                    <div class="card-action">Book with Card</div>
+                </div>
+            </a>
+            <a href="booking.html?payment=paypal" class="payment-method-card-link">
+                <div class="payment-method-card">
+                    <div class="payment-icon-large">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <h3>PayPal</h3>
+                    <p>Secure PayPal payments with buyer protection and easy refunds.</p>
+                    <div class="card-action">Book with PayPal</div>
+                </div>
+            </a>
+            <a href="booking.html?payment=bank" class="payment-method-card-link">
+                <div class="payment-method-card">
+                    <div class="payment-icon-large">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Bank Transfer</h3>
+                    <p>Direct bank transfers available for larger bookings and group reservations.</p>
+                    <div class="card-action">Book with Bank Transfer</div>
+                </div>
+            </a>
+            <a href="booking.html?payment=mobile" class="payment-method-card-link">
+                <div class="payment-method-card">
+                    <div class="payment-icon-large">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Payments</h3>
+                    <p>Apple Pay, Google Pay, and other mobile payment options supported.</p>
+                    <div class="card-action">Book with Mobile Pay</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Security & Trust -->
+    <section class="apartment-section fade-in-up" style="background: linear-gradient(135deg, #f4e4bc 0%, #ffe4b5 100%);">
+        <h2>Your Security Matters</h2>
+        <div class="security-grid">
+            <div class="security-card">
+                <div class="security-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>SSL Encrypted</h4>
+                <p>All transactions are protected by 256-bit SSL encryption, the same security used by banks.</p>
+            </div>
+            <div class="security-card">
+                <div class="security-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h4>Secure Processing</h4>
+                <p>Your payment information is processed through certified PCI DSS compliant gateways.</p>
+            </div>
+            <div class="security-card">
+                <div class="security-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h4>Privacy Protected</h4>
+                <p>We never store your credit card details and follow strict GDPR privacy regulations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Policies -->
+    <section class="apartment-section fade-in-up">
+        <h2>Pricing & Booking Policies</h2>
+        <div class="policies-grid">
+            <div class="policy-card">
+                <h4><i class="fas fa-euro-sign"></i> Pricing Information</h4>
+                <ul>
+                    <li><strong>Base Rate:</strong> €85/night for double occupancy</li>
+                    <li><strong>Additional Guest:</strong> €25/night (up to 3 total)</li>
+                    <li><strong>Taxes:</strong> 6% VAT included in all prices</li>
+                    <li><strong>Minimum Stay:</strong> 2 nights (3 nights peak season)</li>
+                </ul>
+            </div>
+            <div class="policy-card">
+                <h4><i class="fas fa-calendar-check"></i> Payment Schedule</h4>
+                <ul>
+                    <li><strong>Deposit:</strong> 30% due at booking</li>
+                    <li><strong>Balance:</strong> Due 30 days before arrival</li>
+                    <li><strong>Peak Season:</strong> Full payment required</li>
+                    <li><strong>Cancellation:</strong> Refund per policy below</li>
+                </ul>
+            </div>
+            <div class="policy-card">
+                <h4><i class="fas fa-undo-alt"></i> Cancellation Policy</h4>
+                <ul>
+                    <li><strong>60+ days:</strong> Full refund minus €50 fee</li>
+                    <li><strong>30-59 days:</strong> 50% refund</li>
+                    <li><strong>14-29 days:</strong> 25% refund</li>
+                    <li><strong><14 days:</strong> No refund</li>
+                </ul>
+            </div>
+            <div class="policy-card">
+                <h4><i class="fas fa-handshake"></i> Modification Policy</h4>
+                <ul>
+                    <li><strong>Date Changes:</strong> Free up to 60 days prior</li>
+                    <li><strong>Guest Changes:</strong> Allowed until check-in</li>
+                    <li><strong>Early Check-in:</strong> €25 fee (subject to availability)</li>
+                    <li><strong>Late Check-out:</strong> €15/hour (max 4 hours)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="apartment-section fade-in-up" style="background: linear-gradient(135deg, #fefefe 0%, #f0f8ff 100%);">
+        <h2>Payment FAQ</h2>
+        <div class="faq-grid">
+            <div class="faq-card">
+                <h4><i class="fas fa-credit-card"></i> When is payment due?</h4>
+                <p>30% deposit is due immediately to secure your booking. The remaining balance is due 30 days before arrival, or immediately for last-minute bookings.</p>
+            </div>
+            <div class="faq-card">
+                <h4><i class="fas fa-globe"></i> What currency do you accept?</h4>
+                <p>All payments are processed in Euros (€). Your bank will handle currency conversion if needed. No additional fees from us.</p>
+            </div>
+            <div class="faq-card">
+                <h4><i class="fas fa-question-circle"></i> What if I need to cancel?</h4>
+                <p>Our flexible cancellation policy provides partial refunds depending on timing. Review the full policy above or contact us for special circumstances.</p>
+            </div>
+            <div class="faq-card">
+                <h4><i class="fas fa-shield-alt"></i> Is my payment secure?</h4>
+                <p>Absolutely! We use bank-level SSL encryption and certified payment processors. Your information is never stored on our servers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="apartment-section fade-in-up cta-section">
+        <div class="cta-content">
+            <h2>Questions About Payment?</h2>
+            <p>We're here to help with any payment or booking questions. Contact us anytime!</p>
+            <a href="#contact-modal" onclick="openContactModal(event)" class="booknow-btn large">Contact Us</a>
+        </div>
+    </section>
+
+    <script>
+        function openContactModal(e) {
+            e.preventDefault();
+            document.getElementById('contact-modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeContactModal() {
+            document.getElementById('contact-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        window.onclick = function(event) {
+            const modal = document.getElementById('contact-modal');
+            if (event.target === modal) {
+                closeContactModal();
+            }
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeContactModal();
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <a href="#top" class="scroll-to-top" id="scrollToTop"></a>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="contact-modal">
+        <div class="contact-modal-content">
+            <span class="contact-modal-close" onclick="closeContactModal()">&times;</span>
+            <h3>Contact Us</h3>
+            <a href="tel:+355684542500" class="contact-phone">+355 68 4542 500</a>
+        </div>
+    </div>
+
+    <script>
+        // Scroll to Top Functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Smooth scroll to top
+        scrollToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

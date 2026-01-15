@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Handle -->
+  <path d="M 10 45 Q 10 50 15 52 L 15 58 Q 15 60 17 60 L 19 60 Q 21 60 21 58 L 21 52" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Main body -->
+  <path d="M 15 20 Q 15 15 20 15 L 45 15 Q 50 15 52 20 L 52 40 Q 52 45 47 45 L 20 45 Q 15 45 15 40 Z" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Circle (motor/lens area) -->
+  <circle cx="25" cy="30" r="6" stroke="white" stroke-width="2" fill="none"/>
+  
+  <!-- Air waves -->
+  <path d="M 54 22 Q 58 22 60 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 54 30 Q 58 30 60 30" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 54 38 Q 58 38 60 36" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>

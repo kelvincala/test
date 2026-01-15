@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELLO SOLEMAR - Beachside Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Modern Luxury Hero Section */
+        .luxury-hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .hero-bg-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 2rem;
+            z-index: 2;
+            animation: heroFadeIn 1.5s ease-out;
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--secondary-accent);
+            color: var(--dark-bg);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 0 40px rgba(251, 191, 36, 0.5);
+        }
+
+        .hero-accent {
+            color: var(--secondary-accent);
+            font-weight: 600;
+            text-shadow: 0 0 20px var(--secondary-accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .highlight-item i {
+            color: var(--secondary-accent);
+            font-size: 1.2rem;
+        }
+
+        .highlight-item span {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn, .secondary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(30, 58, 138, 0.4);
+        }
+
+        .secondary-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--secondary-accent);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-accent);
+            text-shadow: 0 0 15px var(--secondary-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            color: var(--secondary-accent);
+        }
+
+        .scroll-indicator i {
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Luxury Features Section */
+        .luxury-features {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, rgba(30, 58, 138, 0.05) 100%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            color: var(--accent-color);
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px var(--accent-color);
+        }
+
+        .section-subtitle {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .features-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--glass-card);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px var(--glass-shadow);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 70px rgba(30, 58, 138, 0.3);
+            border-color: var(--secondary-accent);
+        }
+
+        .feature-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover .feature-image img {
+            transform: scale(1.1);
+        }
+
+        .feature-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(251, 191, 36, 0.2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover .feature-overlay {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-content {
+            padding: 30px;
+        }
+
+        .feature-content h3 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .feature-content p {
+            color: var(--secondary-color);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-specs {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .feature-specs span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary-accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: rgba(251, 191, 36, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        /* Guest Testimonials Section */
+        .guest-testimonials {
+            padding: 80px 0;
+            background: var(--glass-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(30, 58, 138, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.05) 0%, rgba(30, 58, 138, 0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(30, 58, 138, 0.15);
+            border-color: var(--secondary-accent);
+        }
+
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            font-size: 3rem;
+            color: var(--accent-color);
+            opacity: 0.8;
+        }
+
+        .testimonial-info {
+            flex: 1;
+        }
+
+        .testimonial-stars {
+            color: var(--secondary-accent);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-author {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-location {
+            color: var(--secondary-color);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content p {
+            color: var(--secondary-color);
+            line-height: 1.7;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: var(--secondary-accent);
+            opacity: 0.3;
+            font-size: 2rem;
+        }
+
+        .testimonials-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: var(--glass-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--glass-shadow);
+            min-width: 120px;
+        }
+
+        .stat-box .stat-number {
+            color: var(--secondary-accent);
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 10px var(--secondary-accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-box .stat-label {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* Review Form Section */
+        .add-review-section {
+            margin-top: 60px;
+            padding: 40px;
+            background: var(--glass-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px var(--glass-shadow);
+        }
+
+        .review-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-input, .form-textarea {
+            padding: 12px 16px;
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 10px;
+            background: rgba(248, 250, 252, 0.05);
+            color: var(--primary-color);
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            background: rgba(248, 250, 252, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-review-btn {
+            padding: 14px 30px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(30, 58, 138, 0.3);
+            align-self: center;
+        }
+
+        .submit-review-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.4);
+        }
+
+        /* Loading Spinner */
+        .testimonial-loading {
+            text-align: center;
+            padding: 40px;
+            grid-column: span 3;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(251, 191, 36, 0.3);
+            border-top: 3px solid var(--secondary-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .testimonial-loading p {
+            color: var(--secondary-color);
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-highlights {
+                gap: 1rem;
+            }
+
+            .highlight-item {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .primary-btn, .secondary-btn {
+                width: 250px;
+                justify-content: center;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .luxury-features {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .features-showcase {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .feature-content {
+                padding: 25px;
+            }
+
+            .feature-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .feature-specs {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .testimonial-card {
+                padding: 25px;
+            }
+
+            .testimonial-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .testimonial-avatar {
+                font-size: 2.5rem;
+            }
+
+            .testimonials-stats {
+                gap: 2rem;
+            }
+
+            .stat-box {
+                min-width: 100px;
+                padding: 15px;
+            }
+
+            .stat-box .stat-number {
+                font-size: 2rem;
+            }
+
+            .add-review-section {
+                padding: 30px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+            <!-- Site Header Navigation -->
+            <header class="site-header">
+                <nav class="navbar">
+                    <div class="navbar-left">
+                        <div class="hamburger-menu" onclick="toggleMobileMenu()">
+                            <div class="hamburger-line"></div>
+                            <div class="hamburger-line"></div>
+                            <div class="hamburger-line"></div>
+                        </div>
+                        <a href="index.html" class="logo"><i class="fas fa-building"></i></a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="rooms.html">Our Rooms</a></li>
+                        <li><a href="experience.html">Beach Experience</a></li>
+                        <li><a href="payment.html">Payment Info</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                        <li><a href="#contact-modal" onclick="openContactModal(event)">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- Mobile Menu -->
+            <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+            <nav class="mobile-menu" id="mobile-menu">
+                <ul>
+                    <li><a href="index.html" onclick="closeMobileMenu()">🏠 Home</a></li>
+                    <li><a href="rooms.html" onclick="closeMobileMenu()">🏘️ Our Rooms</a></li>
+                    <li><a href="experience.html" onclick="closeMobileMenu()">🏖️ Beach Experience</a></li>
+                    <li><a href="payment.html" onclick="closeMobileMenu()">💳 Payment Info</a></li>
+                    <li><a href="booking.html" onclick="closeMobileMenu()">📅 Book Now</a></li>
+                    <li><a href="#contact-modal" onclick="openContactModal(event); closeMobileMenu();">📞 Contact</a></li>
+                </ul>
+            </nav>
+        <!-- Luxury Hero Section -->
+        <section class="luxury-hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-background">
+                <img src="Photos/pngtree-serene-tropical-beach-with-turquoise-water.webp" alt="Himare Beach" class="hero-bg-image">
+            </div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>Luxury Beachfront Living</span>
+                </div>
+                <h1 class="hero-title">Your Exclusive<br><span class="hero-accent">Albanian Riviera</span><br>Retreat</h1>
+                <p class="hero-subtitle">Indulge in sophisticated coastal luxury at SoleMar, where Mediterranean elegance meets unparalleled comfort in the heart of Himarë.</p>
+                <div class="hero-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-crown"></i>
+                        <span>Luxury Accommodations</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <span>Private Beach Access</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-concierge-bell"></i>
+                        <span>Personalized Service</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="rooms.html" class="primary-btn">
+                        <span>Explore Rooms</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="booking.html" class="secondary-btn">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Book Now</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">250m</div>
+                        <div class="stat-label">to Beach</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Guest Rating</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Concierge</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <div class="scroll-indicator">
+                    <span>Scroll to explore</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Luxury Living Features -->
+        <section class="luxury-features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Your Luxury Living Experience</h2>
+                    <p class="section-subtitle">Discover the thoughtfully designed spaces that make SoleMar your perfect home away from home</p>
+                </div>
+
+                <div class="features-showcase">
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <img src="Photos/0b347638-be58-406b-a928-21de9d120201.avif" alt="Luxury Bedroom" />
+                            <div class="feature-overlay">
+                                <div class="feature-icon">
+                                    <i class="fas fa-bed"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Luxury Bedroom Suite</h3>
+                            <p>King-size bed with premium Egyptian cotton linens, blackout curtains, and climate control for ultimate comfort.</p>
+                            <div class="feature-specs">
+                                <span><i class="fas fa-ruler-combined"></i> 25m²</span>
+                                <span><i class="fas fa-users"></i> Sleeps 2</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <img src="Photos/2aad760c-7615-4bd8-9d29-1aba1c02ef5f.avif" alt="Gourmet Kitchen" />
+                            <div class="feature-overlay">
+                                <div class="feature-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Gourmet Kitchen</h3>
+                            <p>Fully equipped with professional appliances, granite countertops, and everything needed for culinary excellence.</p>
+                            <div class="feature-specs">
+                                <span><i class="fas fa-blender"></i> Full Appliances</span>
+                                <span><i class="fas fa-seedling"></i> Fresh Local Access</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <img src="Photos/465ae144-9a7c-4d3e-867c-f7b27e0eb6d7.avif" alt="Elegant Living Area" />
+                            <div class="feature-overlay">
+                                <div class="feature-icon">
+                                    <i class="fas fa-couch"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Elegant Living Area</h3>
+                            <p>Open-concept design with premium furnishings, entertainment system, and panoramic windows overlooking the sea.</p>
+                            <div class="feature-specs">
+                                <span><i class="fas fa-tv"></i> Smart Entertainment</span>
+                                <span><i class="fas fa-wind"></i> Climate Controlled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Benefits -->
+        <section class="apartment-section fade-in-up" style="background: linear-gradient(135deg, #f4e4bc 0%, #ffe4b5 100%);">
+            <h2>Prime Beachside Location</h2>
+            <div class="location-grid">
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-umbrella-beach"></i></div>
+                    <h3>250m to Beach</h3>
+                    <p>Just a 3-minute walk to Himarë's main beach with golden sands and crystal-clear waters.</p>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Local Restaurants</h3>
+                    <p>Walking distance to authentic Albanian tavernas serving fresh seafood and local specialties.</p>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-store"></i></div>
+                    <h3>Convenient Shopping</h3>
+                    <p>Supermarkets, bakeries, and shops all within easy walking distance of your apartment.</p>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-bus"></i></div>
+                    <h3>Easy Transportation</h3>
+                    <p>Bus stops and taxi services readily available for exploring the surrounding areas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Amenities -->
+        <section class="apartment-section fade-in-up">
+            <h2>Modern Amenities</h2>
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <i class="fas fa-wifi"></i>
+                    <span>Free High-Speed WiFi</span>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-snowflake"></i>
+                    <span>Air Conditioning</span>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-tv"></i>
+                    <span>Smart TV</span>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-utensils"></i>
+                    <span>Fully Equipped Kitchen</span>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-shower"></i>
+                    <span>Modern Bathroom</span>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-key"></i>
+                    <span>Self Check-in</span>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-parking"></i>
+                    <span>Street Parking</span>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-broom"></i>
+                    <span>Daily Cleaning</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- New FAQ Section -->
+        <section class="apartment-section fade-in-up" style="background: linear-gradient(135deg, #fefefe 0%, #f0f8ff 100%);">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h4><i class="fas fa-clock"></i> What are check-in and check-out times?</h4>
+                    <p>Check-in is available from 3:00 PM, and check-out is by 11:00 AM. Flexible timing can be arranged for early arrivals or late departures.</p>
+                </div>
+                <div class="faq-card">
+                    <h4><i class="fas fa-car"></i> Is parking available?</h4>
+                    <p>Free street parking is available right outside the apartment. Additional garage parking can be arranged for an extra fee if needed.</p>
+                </div>
+                <div class="faq-card">
+                    <h4><i class="fas fa-paw"></i> Are pets welcome?</h4>
+                    <p>Small pets are welcome with prior approval. Please let us know in advance so we can ensure the apartment is prepared for your furry friend.</p>
+                </div>
+                <div class="faq-card">
+                    <h4><i class="fas fa-users"></i> What's the maximum occupancy?</h4>
+                    <p>The apartment comfortably sleeps 2 adults, with the option to add a third guest using the portable bed. Perfect for couples or small families.</p>
+                </div>
+                <div class="faq-card">
+                    <h4><i class="fas fa-utensils"></i> Can I cook in the apartment?</h4>
+                    <p>Yes! The fully equipped kitchen includes a stove, refrigerator, microwave, coffee maker, and all the essentials for preparing meals.</p>
+                </div>
+                <div class="faq-card">
+                    <h4><i class="fas fa-umbrella-beach"></i> How far is the beach?</h4>
+                    <p>Just 250 meters (about 3 minutes walk) to Himarë's beautiful main beach with golden sands and calm, clear waters.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guest Testimonials -->
+        <section class="guest-testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Our Guests Say</h2>
+                    <p class="section-subtitle">Real experiences from our valued guests who chose SoleMar for their Albanian Riviera escape</p>
+                </div>
+
+                <div id="testimonials-grid" class="testimonials-grid">
+                    <!-- Reviews will be loaded dynamically from API -->
+                    <div class="testimonial-loading">
+                        <div class="loading-spinner"></div>
+                        <p>Loading guest reviews...</p>
+                    </div>
+                </div>
+
+                <!-- Add Review Form -->
+                <div class="add-review-section">
+                    <h3 class="section-title">Share Your Experience</h3>
+                    <div class="review-form-container">
+                        <form id="review-form" class="review-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="review-name" class="form-label">Your Name</label>
+                                    <input type="text" id="review-name" name="review-name" class="form-input" placeholder="John Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="review-rating" class="form-label">Rating</label>
+                                    <select id="review-rating" name="review-rating" class="form-input" required>
+                                        <option value="">Select Rating</option>
+                                        <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                                        <option value="4">⭐⭐⭐⭐ Very Good</option>
+                                        <option value="3">⭐⭐⭐ Good</option>
+                                        <option value="2">⭐⭐ Fair</option>
+                                        <option value="1">⭐ Poor</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-comment" class="form-label">Your Review</label>
+                                <textarea id="review-comment" name="review-comment" class="form-textarea" placeholder="Tell us about your stay..." rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-review-btn">Submit Review</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="testimonials-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">4.9</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Happy Guests</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery -->
+        <section class="apartment-section fade-in-up" style="background: linear-gradient(135deg, #f4e4bc 0%, #ffe4b5 100%);">
+            <h2>Apartment Gallery</h2>
+            <div class="photo-gallery">
+                <img src="Photos/683675e4-d8de-43c0-a5e0-ba2122da891e.avif" alt="Living Area" class="room-photo">
+                <img src="Photos/810cd2db-d3f2-4842-bce7-20896169c78e.avif" alt="Bedroom" class="room-photo">
+                <img src="Photos/ad04c82d-3104-414d-9520-141fdd50ea9f.avif" alt="Kitchen" class="room-photo">
+                <img src="Photos/ad89ddd8-f8c8-4f27-a07f-d58beb3d40a0.avif" alt="Bathroom" class="room-photo">
+                <img src="Photos/da2c9b00-606f-4609-ab10-888dd5bd6e09.avif" alt="Exterior" class="room-photo">
+                <img src="Photos/pngtree-serene-tropical-beach-with-turquoise-water.webp" alt="Nearby Beach" class="room-photo">
+            </div>
+        </section>
+
+        <!-- Booking CTA -->
+        <section class="apartment-section fade-in-up cta-section">
+            <div class="cta-content">
+                <h2>Ready for Your Beachside Escape?</h2>
+                <p>Book your stay today and experience the perfect blend of comfort and coastal living.</p>
+                <a href="booking.html" class="booknow-btn large">Book Now</a>
+            </div>
+        </section>
+    <script>
+        // Hamburger Menu Functions
+        function toggleMobileMenu() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-menu-overlay');
+
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeMobileMenu() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-menu-overlay');
+
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Contact Modal Functions
+        function openContactModal(e) {
+            e.preventDefault();
+            closeMobileMenu(); // Close mobile menu if open
+            document.getElementById('contact-modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeContactModal() {
+            document.getElementById('contact-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        window.onclick = function(event) {
+            const modal = document.getElementById('contact-modal');
+            if (event.target === modal) {
+                closeContactModal();
+            }
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeContactModal();
+                closeMobileMenu();
+            }
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <a href="#top" class="scroll-to-top" id="scrollToTop"></a>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="contact-modal">
+        <div class="contact-modal-content">
+            <span class="contact-modal-close" onclick="closeContactModal()">&times;</span>
+            <h3>Contact Us</h3>
+            <a href="tel:+355684542500" class="contact-phone">+355 68 4542 500</a>
+        </div>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script>
+        // Load reviews from API
+        async function loadReviews() {
+            try {
+                const reviews = await api.getReviews(true); // Load only verified reviews
+                renderReviews(reviews);
+            } catch (error) {
+                console.error('Failed to load reviews:', error);
+                const container = document.getElementById('testimonials-grid');
+                container.innerHTML = `
+                    <div class="testimonial-loading" style="grid-column: span-3;">
+                        <p>Unable to load reviews. Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Render reviews dynamically
+        function renderReviews(reviews) {
+            const container = document.getElementById('testimonials-grid');
+
+            if (!reviews || reviews.length === 0) {
+                container.innerHTML = `
+                    <div class="testimonial-loading" style="grid-column: span-3;">
+                        <p>No reviews available yet. Be the first to share your experience!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const reviewCards = reviews.map(review => `
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-stars">
+                                ${'⭐'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+                            </div>
+                            <div class="testimonial-author">${review.guest_name}</div>
+                            <div class="testimonial-location">Verified Guest</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>${review.comment}</p>
+                    </div>
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = reviewCards;
+        }
+
+        // Handle review form submission
+        document.getElementById('review-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = document.querySelector('.submit-review-btn');
+            const originalText = submitBtn.textContent;
+
+            try {
+                const formData = new FormData(e.target);
+                const reviewData = {
+                    guest_name: formData.get('review-name').trim(),
+                    rating: parseInt(formData.get('review-rating')),
+                    comment: formData.get('review-comment').trim()
+                };
+
+                // Basic validation
+                if (!reviewData.guest_name || !reviewData.rating || !reviewData.comment) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+
+                // Show loading state
+                submitBtn.textContent = 'Submitting...';
+                submitBtn.disabled = true;
+
+                // Submit review
+                await api.createReview(reviewData);
+
+                // Success
+                submitBtn.textContent = 'Review Submitted!';
+                submitBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
+
+                // Clear form
+                e.target.reset();
+
+                // Reload reviews to show the new one
+                setTimeout(() => {
+                    loadReviews();
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 2000);
+
+                alert('Thank you for your review! It will be published after verification.');
+
+            } catch (error) {
+                console.error('Review submission error:', error);
+                submitBtn.textContent = 'Failed - Try Again';
+                submitBtn.disabled = false;
+                submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+
+                alert('Sorry, there was an error submitting your review. Please try again.');
+
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                }, 3000);
+            }
+        });
+
+        // Initialize reviews on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadReviews();
+        });
+
+        // Scroll to Top Functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Smooth scroll to top
+        scrollToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
